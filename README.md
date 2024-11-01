@@ -14,25 +14,25 @@ This project is developed as part of the Toolbox3 assignment and demonstrates pr
 ### Clone the Repository
 To get started, clone the project to your local machine:
 ```
-  git clone https://github.com/abed-mhd/Assignment_ToolBox3.git
-  cd Assignment_ToolBox3
+git clone https://github.com/abed-mhd/Assignment_ToolBox3.git
+cd Assignment_ToolBox3
 ```
 ### Build the Project
 The project can be fully built using a single Gradle command, which handles all dependencies, compilation, and JAR packaging.
 ```
-   ./gradlew build
+./gradlew build
 ```
 ### Testing
 Run unit tests to verify functionality:
 ```
-   ./gradlew test
+./gradlew test
 ```
 
 ### Running the Application
 To run the project, use either of the following commands:
 1. Run using the bootRun task:
 ```
-   ./gradlew bootRun
+./gradlew bootRun
 ```
 2. Run the JAR directly: First, package the application into a JAR file:
 ```
