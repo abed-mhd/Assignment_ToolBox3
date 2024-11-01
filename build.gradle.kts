@@ -1,3 +1,5 @@
+import org.gradle.internal.impldep.org.eclipse.jgit.lib.ObjectChecker.author
+
 plugins {
 	java
 	id("org.springframework.boot") version "3.3.4"
@@ -16,6 +18,12 @@ java {
 repositories {
 	mavenCentral()
 }
+
+// Project metadata
+val author: String = "Abdelaziz Mohamad"
+val projectDate: String = "2024-10-21"
+val license: String = "MIT"
+
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
