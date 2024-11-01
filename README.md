@@ -6,6 +6,10 @@ This project is developed as part of the Toolbox3 assignment and demonstrates pr
 - Data Persistence: Utilizes JPA for database operations and entity management.
 - Swagger Documentation: Easily accessible API documentation through Swagger UI.
 
+## Requirements
+- Java 17 or later
+- Gradle (included with wrapper)
+
 ## Project Setup
 ### Clone the Repository
 To get started, clone the project to your local machine:
