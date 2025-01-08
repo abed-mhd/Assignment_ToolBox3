@@ -7,7 +7,7 @@ This project is developed as part of the Toolbox3 assignment and demonstrates pr
 - Swagger Documentation: Easily accessible API documentation through Swagger UI.
 
 ## Requirements
-- Java 17 or later
+- Java 21
 - Gradle (included with wrapper)
 
 ## Project Setup
