@@ -1,0 +1,41 @@
+name: Release Workflow
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Build the project
+        run: ./gradlew clean build
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: jar-file
+          path: build/libs/*.jar
+
+      - name: Generate changelog
+        id: changelog
+        uses: heinrichreimer/action-github-changelog-generator@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          body: ${{ steps.changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
