@@ -8,6 +8,8 @@ on:
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Allow pushing to the repository
 
     steps:
       - name: Checkout code
@@ -17,14 +19,14 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '21'
-          distribution: 'temurin' 
+          distribution: 'temurin'
 
       - name: Set up Gradle
         uses: gradle/gradle-build-action@v2
 
       - name: Grant execute permissions for Gradle wrapper
-        run: chmod +x gradlew 
-        
+        run: chmod +x gradlew
+
       - name: Generate Javadoc
         run: ./gradlew generateJavadoc
 
