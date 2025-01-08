@@ -29,3 +29,9 @@ jobs:
 
       - name: Run unit tests
         run: ./gradlew test
+        
+      - name: Run Checkstyle for code style checks
+        run: ./gradlew checkstyleMain checkstyleTest
+
+      - name: Secrets scanning
+        uses: aws-actions/git-secrets-scan@v1
