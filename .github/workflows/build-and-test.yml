@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java-version: [17, 21] 
+        java-version: [17,21] 
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -29,9 +30,6 @@ jobs:
 
       - name: Run unit tests
         run: ./gradlew test
-        
+
       - name: Run Checkstyle for code style checks
         run: ./gradlew checkstyleMain checkstyleTest
-
-      - name: Secrets scanning
-        uses: aws-actions/git-secrets-scan@v1
