@@ -1,0 +1,7 @@
+com.emse.spring.Assignment
+com.emse.spring.Assignment.Controller
+com.emse.spring.Assignment.dao
+com.emse.spring.Assignment.dto
+com.emse.spring.Assignment.mapper
+com.emse.spring.Assignment.model
+com.emse.spring.Assignment.service

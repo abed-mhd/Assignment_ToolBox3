@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.emse.spring.Assignment"},{"l":"com.emse.spring.Assignment.Controller"},{"l":"com.emse.spring.Assignment.dao"},{"l":"com.emse.spring.Assignment.dto"},{"l":"com.emse.spring.Assignment.mapper"},{"l":"com.emse.spring.Assignment.model"},{"l":"com.emse.spring.Assignment.service"}];updateSearchResults();
