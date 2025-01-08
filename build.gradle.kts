@@ -5,6 +5,8 @@ plugins {
 	id("org.springframework.boot") version "3.3.4"
 	// Apply the Spring Dependency Management plugin for managing dependencies
 	id("io.spring.dependency-management") version "1.1.6"
+	// Add CheckStyle and SpotBugs plugins
+	id("checkstyle")
 }
 
 // Define the group and version for the project
@@ -37,6 +39,39 @@ dependencies {
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher") // JUnit platform launcher
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0") // SpringDoc for API documentation
 }
+
+
+// Configure Checkstyle
+tasks.withType<Checkstyle> {
+	configFile = file("config/checkstyle/checkstyle.xml")
+}
+
+// Task to generate a default Checkstyle configuration file if it doesn't exist
+tasks.register("generateCheckstyleConfig") {
+	doLast {
+		val configDir = file("config/checkstyle")
+		if (!configDir.exists()) {
+			configDir.mkdirs()
+		}
+		val configFile = file("config/checkstyle/checkstyle.xml")
+		if (!configFile.exists()) {
+			configFile.writeText(
+				"""
+                <!DOCTYPE module PUBLIC
+                    "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+                    "https://checkstyle.org/dtds/configuration_1_3.dtd">
+                <module name="Checker">
+                    <module name="TreeWalker">
+                        <module name="JavadocMethod"/>
+                    </module>
+                </module>
+                """.trimIndent()
+			)
+		}
+	}
+}
+
+
 
 // Configure the test tasks
 tasks.withType<Test> {
