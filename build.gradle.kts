@@ -71,6 +71,11 @@ tasks.register("generateCheckstyleConfig") {
 	}
 }
 
+tasks.register("generateJavadoc", Javadoc::class) {
+	source = sourceSets["main"].allJava
+	classpath = configurations["runtimeClasspath"]
+	setDestinationDir(file("build/docs/javadoc"))
+}
 
 
 // Configure the test tasks
